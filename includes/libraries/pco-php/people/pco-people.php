@@ -19,17 +19,6 @@ class PCO_PHP_People {
 
 	}
 
-	public function lists() 
-	{
-		if ( $this->parameters ) {
-			$this->parameters = $this->format_parameters( $this->parameters );
-		}
-
-		$base_url = 'https://api.planningcenteronline.com/people/v2/lists';
-
-		return $base_url . '?' . $this->parameters;
-	}
-
 	public function people() 
 	{	
 
@@ -52,9 +41,6 @@ class PCO_PHP_People {
 		$string = '';
 
 		switch ($this->method) {
-			case 'lists':
-				$keys = array( 'name', 'batch_completed_at', 'created_at', 'updated_at' );
-				break;
 			case 'people':
 				$keys = array(
 					'first_name',
