@@ -46,56 +46,6 @@ class PCO_PHP_API {
 
 	}
 
-	public function get_services( $args = '' ) 
-	{
-		
-		$method = $args['method'];
-
-		$services = new PCO_PHP_Services($args);
-		$url = $services->$method();
-
-		$response = wp_remote_get( $url, $this->get_headers() );
-		$result = '';
-
-		if( is_array($response) ) {
-		  $header = $response['headers']; // array of http header lines
-		  $body = json_decode( $response['body'] ); // use the content
-
-		  if ( isset( $body->errors[0]->detail ) ) {
-		  	$result = $body->errors[0]->detail;
-		  } else {
-		  	$result = apply_filters( 'planning_center_wp_get_services_body', $body->data, $body );
-		  }
-
-		}
-
-		return $result;
-
-	}
-
-	public function get_donations() 
-	{
-		
-		$response = wp_remote_get( 'https://api.planningcenteronline.com/giving/v2/donations', $this->get_headers() );
-
-		if( is_array($response) ) {
-		  $header = $response['headers']; // array of http header lines
-		  $body = json_decode( $response['body'] ); // use the content
-
-		  echo '<pre>';
-		  print_r( $body );
-		  echo '</pre>';
-
-		  $donations = $body->data;
-
-		} else {
-			$donations = 'Could not be found.';
-		}
-
-		return $donations;
-
-	}
-
 	public function get_headers() 
 	{
 		return array(
