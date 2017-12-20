@@ -2,7 +2,7 @@
 
 /**
 * Load the base class for the PCO PHP API
-* // http://planningcenter.github.io/api-docs/#schedules
+* // http://planningcenter.github.io/api-docs/
 
 */
 class PCO_PHP_API {
