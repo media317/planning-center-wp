@@ -21,15 +21,12 @@ class Planning_Center_WP {
 
 		require plugin_dir_path( __FILE__ ) . 'libraries/pco-php/pco-php.php';
 		require plugin_dir_path( __FILE__ ) . 'libraries/pco-php/people/pco-people.php';
-		require plugin_dir_path( __FILE__ ) . 'libraries/pco-php/services/pco-services.php';
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts' ) );
 
 	}
 
 	public function load_scripts() {
-
-		// wp_enqueue_script( 'bpopup', PLANNING_CENTER_WP_PLUGIN_URL . 'js/bpopup.js' );
 
 	}
 
